@@ -26,12 +26,22 @@ def create_result(request, id):
 def create_form(request):
     form = Hh_Search_Form(request.POST)
     if form.is_valid():
-        # Получить данные из форы
+        # Получить данные из фомры
         hh_query = form.cleaned_data['hh_query']
+        hh_option = form.cleaned_data['hh_option']
+        # print(type(hh_option), f' hh_option = {hh_option}')
         # обработка полученных данных
-        print(type(hh_query),f' hh_query = {hh_query}')
-        ad.set_keywords(hh_query)
-        result = ad.get_data(hh_query)
+        # print(type(hh_query),f' hh_query = {hh_query}')
+
+        if hh_option == 'all':
+            keywords_s = f'{hh_query}'
+        elif hh_option == 'company':
+            keywords_s = f'COMPANY_NAME:({hh_query})'
+        elif hh_option == 'name':
+            keywords_s = f'NAME:({hh_query})'
+
+        ad.set_keywords(keywords_s)
+        result = ad.get_data(keywords_s)
         # print(type(result))
         # print(type(result[0]['requirements']))
         # pprint.pprint(result)

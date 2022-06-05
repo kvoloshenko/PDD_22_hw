@@ -26,7 +26,8 @@ index.html - the first page of the aplication;
 
 ### form.html
 form.html - the page with the form used for search at HH.RU;
-![img_3.png](img_3.png)
+
+![img_11.png](img_11.png)
 
 ### result.html
 result.html - the page with current result of the request at HH.RU;

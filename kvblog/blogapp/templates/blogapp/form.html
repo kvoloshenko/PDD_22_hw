@@ -23,7 +23,7 @@
 <!--    </form>-->
         <form id="hhSearchForm" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form }}
             <button type="submit" class="btn btn-secondary" id="hhSearchButton">Искать вакансии</button>
         </form>
     </div>

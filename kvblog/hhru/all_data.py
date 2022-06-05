@@ -2,19 +2,22 @@ import json
 import pprint
 import requests
 import re
-
+from django.conf import settings
+import os
 
 DOMAIN = 'https://api.hh.ru/'
 url_vacancies = f'{DOMAIN}vacancies'
 page = 1
 
 def data_save_json(data, file):
-    with open(file, 'w', encoding='utf8') as f:
+    path = os.path.join(settings.BASE_DIR, 'hhru', file)
+    with open(path, 'w', encoding='utf8') as f:
         json.dump(data, f)
 
 
 def data_save_txt(data, file):
-    with open(file, 'w', encoding='utf8') as f:
+    path = os.path.join(settings.BASE_DIR, 'hhru', file)
+    with open(path, 'w', encoding='utf8') as f:
         f.write(data)
 
 
